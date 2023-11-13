@@ -29,18 +29,19 @@ namespace VMTDriver {
     static VRWatchdogProvider g_VRWatchdogProvider;
 
     //ServerTrackedDeviceProviderのインスタンスを返す
-    ServerTrackedDeviceProvider* VMTDriver::GetServer()
+    ServerTrackedDeviceProvider* GetServer()
     {
         return &g_ServerTrackedDeviceProvider;
     }
 
     //VRWatchdogProviderのインスタンスを返す
-    VRWatchdogProvider* VMTDriver::GetWatchdog()
+    VRWatchdogProvider* GetWatchdog()
     {
         return &g_VRWatchdogProvider;
     }
 }
 
+#ifdef WIN32
 //DLLの基本処理(未使用)
 BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved)
 {
@@ -54,6 +55,7 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReser
     }
     return TRUE;
 }
+#endif
 
 //OpenVRのファクトリ関数。これによりOpenVR側からクラスが参照されるようになる
 HMD_DLL_EXPORT void* HmdDriverFactory(const char* pInterfaceName, int* pReturnCode)

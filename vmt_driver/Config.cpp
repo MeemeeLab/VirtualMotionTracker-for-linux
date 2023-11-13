@@ -42,7 +42,11 @@ namespace VMTDriver {
 		string installPath = GetServer()->GetInstallPath();
 
 		if (!installPath.empty()) {
+#ifdef WIN32
 			string filename = (installPath + "\\setting.json");
+#elif __unix__
+			string filename = (installPath + "/setting.json");
+#endif
 			try {
 				//テキストの読み込み
 				std::ifstream inputStream(filename);
@@ -76,7 +80,11 @@ namespace VMTDriver {
 		if (!installPath.empty()) {
 			try {
 				//テキストの書き込み
+#ifdef WIN32
 				string filename = (installPath + "\\setting.json");
+#elif __unix__
+				string filename = (installPath + "/setting.json");
+#endif
 
 				std::ofstream outputStream(filename);
 				outputStream << output.dump(3, ' ');
@@ -102,7 +110,7 @@ namespace VMTDriver {
 	{
 		if (!j.contains("RoomMatrix"))
 		{
-			j["RoomMatrix"] = {};
+			j["RoomMatrix"] = nullptr;
 		}
 		if (!j.contains("ReceivePort"))
 		{
@@ -159,7 +167,7 @@ namespace VMTDriver {
 			SetRoomMatrixStatus(false); //ルーム行列セット状態をクリア
 
 			json j = LoadJson();
-			if (j.contains("RoomMatrix"))
+			if (j.contains("RoomMatrix") && j["RoomMatrix"] != nullptr)
 			{
 				m_RoomToDriverMatrix
 					<< j["RoomMatrix"][0], j["RoomMatrix"][1], j["RoomMatrix"][2], j["RoomMatrix"][3]

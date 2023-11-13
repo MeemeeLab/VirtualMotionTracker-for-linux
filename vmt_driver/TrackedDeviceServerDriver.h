@@ -126,7 +126,7 @@ namespace VMTDriver {
         uint32_t m_index = k_unTrackedDeviceIndexInvalid;
 
         DriverPose_t m_pose{ 0 };
-        RawPose m_rawPose{ 0 };
+        RawPose m_rawPose;
 
         VRBoneTransform_t m_boneTransform[skeletonBoneCount]{ 0 };
 

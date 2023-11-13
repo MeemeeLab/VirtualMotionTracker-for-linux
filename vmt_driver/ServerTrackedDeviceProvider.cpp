@@ -194,8 +194,10 @@ namespace VMTDriver {
         //デバイスコンテキストを保持
         m_pDriverContext = pDriverContext;
 
+#ifdef WIN32
         //セットアップへプロセス起動中を伝達するMutex
         ::CreateMutexA(nullptr, FALSE, "VMT_Mutex");
+#endif
 
         //ログをオープン
         Log::Open(VRDriverLog());

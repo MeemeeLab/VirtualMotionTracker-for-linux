@@ -43,12 +43,12 @@ namespace VMTDriver {
 
 		virtual void ProcessMessage(const osc::ReceivedMessage& m, const IpEndpointName& remoteEndpoint) override;
 	public:
-		static void OSCReceiver::SendLog(int stat, string msg);
-		static void OSCReceiver::SendAlive();
-		static void OSCReceiver::SendHaptic(int index, float frequency, float amplitude, float duration);
-		static void OSCReceiver::SendUnavailable(int code, std::string reason);
-		static void OSCReceiver::SendDevices(string msg);
-		static void OSCReceiver::SendSubscribedDevicePose(string serial, float x, float y, float z, float qx, float qy, float qz, float qw);
+		static void SendLog(int stat, string msg);
+		static void SendAlive();
+		static void SendHaptic(int index, float frequency, float amplitude, float duration);
+		static void SendUnavailable(int code, std::string reason);
+		static void SendDevices(string msg);
+		static void SendSubscribedDevicePose(string serial, float x, float y, float z, float qx, float qy, float qz, float qw);
 	};
 
 	class CommunicationManager {

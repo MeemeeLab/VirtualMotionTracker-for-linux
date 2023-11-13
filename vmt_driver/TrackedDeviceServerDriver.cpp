@@ -575,7 +575,7 @@ namespace VMTDriver {
         if (value < 0) {
             value = 0;
         }
-        if (isnan(value)) {
+        if (std::isnan(value)) {
             value = 0;
         }
 

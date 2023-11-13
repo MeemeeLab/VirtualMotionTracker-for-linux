@@ -41,7 +41,14 @@ SOFTWARE.
 #include "json.hpp"
 
 //DLL定義
+#ifdef WIN32
 #define HMD_DLL_EXPORT extern "C" __declspec( dllexport )
+#elif __unix__
+#define HMD_DLL_EXPORT extern "C"
+#else
+#error Unknown target
+#endif
+
 using Eigen::MatrixXd;
 
 using namespace vr;
