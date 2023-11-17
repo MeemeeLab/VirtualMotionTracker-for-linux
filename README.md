@@ -4,7 +4,7 @@
 ### [Sample Code](https://gpsnmeajp.github.io/VirtualMotionTrackerDocument/sample/)
 ### [Download Binaly](https://github.com/MeemeeLab/VirtualMotionTracker-for-linux/releases)
 
-> [!INFO]  
+> [!NOTE]  
 > This is NOT a original version of Virtual Motion Tracker by `gpsnmeajp`.  
 > If you don't need Linux support or just want to read readme, Go to official repository! [gpsnmeajp/VirtualMotionTracker](https://github.com/gpsnmeajp/VirtualMotionTracker)
 
