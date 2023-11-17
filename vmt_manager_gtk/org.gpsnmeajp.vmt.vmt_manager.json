@@ -1,0 +1,112 @@
+{
+    "app-id" : "org.gpsnmeajp.vmt.vmt_manager",
+    "runtime" : "org.gnome.Platform",
+    "runtime-version" : "45",
+    "sdk" : "org.gnome.Sdk",
+    "command" : "vmt_manager_gtk",
+    "finish-args" : [
+        "--share=network",
+        "--share=ipc",
+        "--socket=fallback-x11",
+        "--device=dri",
+        "--socket=wayland",
+        "--device=shm",
+        "--filesystem=~/.config/openvr",
+        "--filesystem=~/.steam",
+        "--filesystem=host:ro"
+    ],
+    "cleanup" : [
+        "/include",
+        "/lib/pkgconfig",
+        "/man",
+        "/share/doc",
+        "/share/gtk-doc",
+        "/share/man",
+        "/share/pkgconfig",
+        "*.la",
+        "*.a"
+    ],
+    "modules" : [
+        {
+            "name" : "python3-osc",
+            "buildsystem" : "simple",
+            "build-commands" : [
+                "pip3 install --prefix=/app python_osc-1.8.3-py3-none-any.whl"
+            ],
+            "sources" : [
+                {
+                    "type" : "file",
+                    "url" : "https://files.pythonhosted.org/packages/e4/d6/bff3a75ab880aded4ced078e391265c17fc220fc11cc535de1975513b230/python_osc-1.8.3-py3-none-any.whl",
+                    "sha256" : "6fa7e5cf7690057712c26e5f67a747126e6a5f481a40792aad0f25ac3edee815"
+                }
+            ]
+        },
+        {
+            "name" : "python3-openvr",
+            "buildsystem" : "simple",
+            "build-commands" : [
+                "pip3 install --prefix=/app openvr-1.26.701-py3-none-any.whl"
+            ],
+            "sources" : [
+                {
+                    "type" : "file",
+                    "url" : "https://files.pythonhosted.org/packages/f5/6b/2cee0f7a75c7c5e3bcbe8448b61a81eccc408b9330d9c5947329e6894df7/openvr-1.26.701-py3-none-any.whl",
+                    "sha256" : "9177c2b5549ac642d703975c28a7879f2b1929288c554e827c1728c33f6b7400"
+                }
+            ]
+        },
+        {
+            "name": "python3-multipledispatch",
+            "buildsystem" : "simple",
+            "build-commands" : [
+                "pip3 install --prefix=/app multipledispatch-1.0.0-py3-none-any.whl"
+            ],
+            "sources" : [
+                {
+                    "type" : "file",
+                    "url" : "https://files.pythonhosted.org/packages/51/c0/00c9809d8b9346eb238a6bbd5f83e846a4ce4503da94a4c08cb7284c325b/multipledispatch-1.0.0-py3-none-any.whl",
+                    "sha256" : "0c53cd8b077546da4e48869f49b13164bebafd0c2a5afceb6bb6a316e7fb46e4"
+                }
+            ]
+        },
+        {
+            "name" : "python3-numpy",
+            "buildsystem" : "simple",
+            "build-commands" : [
+                "pip3 install --prefix=/app numpy-1.26.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl"
+            ],
+            "sources" : [
+                {
+                    "type" : "file",
+                    "url" : "https://files.pythonhosted.org/packages/b6/ab/5b893944b1602a366893559bfb227fdfb3ad7c7629b2a80d039bb5924367/numpy-1.26.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+                    "sha256" : "96ca5482c3dbdd051bcd1fce8034603d6ebfc125a7bd59f55b40d8f5d246832b"
+                }
+            ]
+        },
+        {
+            "name" : "python3-pyrr",
+            "buildsystem" : "simple",
+            "build-commands" : [
+                "pip3 install --prefix=/app pyrr-0.10.3-py3-none-any.whl"
+            ],
+            "sources" : [
+                {
+                    "type" : "file",
+                    "url" : "https://files.pythonhosted.org/packages/80/d4/09bb74e93f9f677eadcf9ddb92681755f75e0f354a1b904f1913e32ca1b2/pyrr-0.10.3-py3-none-any.whl",
+                    "sha256" : "d8af23fb9bb29262405845e1c98f7339fbba5e49323b98528bd01160a75c65ac"
+                }
+            ]
+        },
+        {
+            "name" : "vmt_manager_gtk",
+            "builddir" : true,
+            "buildsystem" : "meson",
+            "sources" : [
+                {
+                    "type" : "dir",
+                    "path" : "."
+                }
+            ]
+        }
+    ]
+}

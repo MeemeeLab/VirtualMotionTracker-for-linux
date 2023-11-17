@@ -1,0 +1,6 @@
+data/org.gpsnmeajp.vmt.vmt_manager.desktop.in
+data/org.gpsnmeajp.vmt.vmt_manager.metainfo.xml.in
+data/org.gpsnmeajp.vmt.vmt_manager.gschema.xml
+src/main.py
+src/window.py
+src/window.ui

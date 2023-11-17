@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="vmt_manager_gtk">
+	<schema id="org.gpsnmeajp.vmt.vmt_manager" path="/org/gpsnmeajp/vmt/vmt_manager/">
+	</schema>
+</schemalist>

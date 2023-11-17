@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=vmt_manager_gtk
+Exec=vmt_manager_gtk
+Icon=org.gpsnmeajp.vmt.vmt_manager
+Terminal=false
+Type=Application
+Categories=GTK;
+StartupNotify=true

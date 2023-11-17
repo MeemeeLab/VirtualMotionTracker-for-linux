@@ -369,3 +369,5 @@ cmake_uninstall.cmake
 cmake-build-*
 linux_build/
 driver_build/
+.build/
+.flatpak-builder/
