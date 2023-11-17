@@ -1,32 +1,39 @@
-# VMT - Virtual Motion Tracker
 ![](docs/vmt_vr.png)
 ## [Official page and Manual](https://gpsnmeajp.github.io/VirtualMotionTrackerDocument/)
 ### [API Reference](https://gpsnmeajp.github.io/VirtualMotionTrackerDocument/api/)
 ### [Sample Code](https://gpsnmeajp.github.io/VirtualMotionTrackerDocument/sample/)
-### [Download Binaly](https://gpsnmeajp.github.io/VirtualMotionTrackerDocument/download/)
+### [Download Binaly](https://github.com/MeemeeLab/VirtualMotionTracker-for-linux/releases)
 
-An easy-to-use virtual tracker driver for OpenVR. With your own device, your own software, and any.
-You can send pose (position and rotation) with OSC Protocol and use it as a virtual tracker on SteamVR.
+> [!INFO]  
+> This is NOT a original version of Virtual Motion Tracker by `gpsnmeajp`.  
+> If you don't need Linux support or just want to read readme, Go to official repository! [gpsnmeajp/VirtualMotionTracker](https://github.com/gpsnmeajp/VirtualMotionTracker)
 
-Creating your own OpenVR tracking device was difficult and required a high degree of technical work. 
-However, from now on, by using VMT, it will be possible to do it in a simple way like attaching to a GameObject in Unity.   
+> [!WARNING]  
+> This linux port is still a experimental and it is prototype level. Do not use for production!
 
-From v0.14, Supports Skeletal Input, and it is now possible to create glove-type controllers.
+# VMT - Virtual Motion Tracker for Linux
+This is fork of Virtual Motion Tracker, patched to work with GNU/Linux.
+Tested on Arch Linux rolling x86_64, ALVR, Oculus Quest 2.
 
-自作デバイス、自作のソフトウェアで、簡単に使える OpenVR 仮想トラッカードライバです。OSCで姿勢(座標や回転)を受け取り、仮想的なトラッカーとしてSteamVR上で利用することができます。  
+## Installation
+Grab my builds from [release page](https://github.com/MeemeeLab/VirtualMotionTracker-for-linux/releases).
 
-これまで、独自のOpenVRトラッキングデバイスを作成するということは難しい作業であり、高度な技術的作業が必要でした。しかし、これからはVMTを用いることで、UnityでGameObjectにアタッチするような簡単な方法で行うことができるようになります。  
+After downloading precompiled driver, extract somewhere that is _permanant_.
 
-v0.14より、Skeletal Inputに対応し、グローブ型コントローラなども作成できるようになりました。
+Next, you need to tell SteamVR to use this driver. Run this command:
+```sh
+~/.steam/steam/steamapps/common/SteamVR/bin/vrpathreg.sh adddriver /path/to/driver
+```
 
-# Build
+Root of driver directory includes driver.vrdrivermanifest, settings.json and some directories.
 
-+ VS2019 Community
-+ VMT Driver (C++) 
-+ VMT Manager (C#)
+After registration, SteamVR should load drivers for you. Start SteamVR and check driver is loaded:
+```
+Option (top-left corner button of SteamVR window) -> Settings -> Controllers -> Manage Trackers
+```
+If you see multiple trackers like `VMT_0`, hooray! it's installed. Follow setup guide section [Initial Setup of original VirtualMotionTracker](https://gpsnmeajp.github.io/VirtualMotionTrackerDocument/setup/#initial-setup) but with vmt_manager_gtk as a manager. You can skip Download and Installation section of official document. it is only for Windows.
 
-Open solution and build it.
-
+\> For installing vmt_manager_gtk on Linux, go to [vmt_manager_gtk/README.md](https://github.com/MeemeeLab/VirtualMotionTracker-for-linux/blob/master/vmt_manager_gtk/README.md)
 
 # Licence
 MIT Licence
